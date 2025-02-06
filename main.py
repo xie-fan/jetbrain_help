@@ -802,7 +802,7 @@ index_html_template = """<!DOCTYPE html>
 ####REPLACE_MARK####
 </main>
 <footer class="flex items-center justify-between">
-    <div class="text-sm text-grey">Theme by QieTuZai</div>
+    <div class="text-sm text-grey" onclick="refresh()">refresh license and plugins</div>
     <div class="text-sm text-grey">
         <button class="jetbra-button" onclick="showLicenseForm()">Refill licensee information</button>
     </div>
@@ -1026,6 +1026,17 @@ fIqVyfK6t0eKJqrvp54XFEtJGR+lf3pBfTdcOI6QFEPKGZKoQz8Ck+BC/WBDtbjc
             .then(() => {
                 alert("The equal code has been copied to your clipboard");
             })
+    }
+    window.refresh = async function (e){
+        fetch('/refresh')  // 这里是相对路径
+          .then(response => response.json())
+          .then(data => {
+            alert('返回的消息: ' + JSON.stringify(data));
+          })
+          .catch(error => {
+            console.error('请求失败:', error);
+            alert('请求失败，请稍后再试。');
+          });
     }
 </script>
 </body>
