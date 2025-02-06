@@ -1029,9 +1029,8 @@ fIqVyfK6t0eKJqrvp54XFEtJGR+lf3pBfTdcOI6QFEPKGZKoQz8Ck+BC/WBDtbjc
     }
     window.refresh = async function (e){
         fetch('/refresh')  // 这里是相对路径
-          .then(response => response.json())
-          .then(data => {
-            alert('返回的消息: ' + JSON.stringify(data));
+          .then(response => {
+            alert('返回的消息: ' + response);
           })
           .catch(error => {
             console.error('请求失败:', error);
